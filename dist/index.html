@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIPL - KARAOKE · DANCE CLUB</title>
+	<link rel="icon" href="./assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper.min.css">
+    <link rel="stylesheet" href="./assets/css/datepicker.min.css">
+    <link rel="stylesheet" href="./assets/css/animate.min.css">
+
+    <script src="./assets/js/bandle.min.js" defer></script>
+</head>
+<body x-data="{ bodyScroll: true, popup0: false }" :class="bodyScroll ? 'overflow-y-auto' : 'overflow-y-hidden'">
+    <header id="header" x-data="{ fixedHeader: false, mobileMenuOpen: false }">
+        <div class="bg-no-repeat bg-cover bg-scroll" style="background-image: url(./assets/images/background.jpeg); box-shadow: inset 0 0 0 1000px rgba(0,0,0,.5); background-position: right center;">
+            <div id="header-top">
+                <div class="absolute top-0 left-0 w-full py-[20px] z-30">
+                    <div class="container-default">
+                        <div class="flex justify-between items-center">
+                            <a href="/" class="block max-w-[100px] max-h-[45px] mds:max-w-[85px] max-x-[40px]">
+                                <img src="./assets/images/logo.svg" draggable="false" alt="Home" title="Home" class="max-w-full max-h-full">
+                            </a>
+                            <nav class="header-menu flex-grow basis-1/2 ls:hidden">
+                                <ul class="flex justify-between space-x-5 pl-[65px]">
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">About the club</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Events</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Posters</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Menu</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Gallery</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Rooms</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Contacts</a></li>
+                                </ul>
+                            </nav>
+                            <div class="flex items-center">
+                                <div class="pl-8 pr-5 mds:pl-4 mds:pr-2 sr:pl-0 sr:pr-0 ssm:hidden">
+                                    <a href="tel:4844322387" class="text-main mds:text-[15px] hover:text-spacegray transition-colors ease-in-out duration-200 font-medium tracking-[2px] leading-[1.55] text-lg" aria-label="Phone number">(484) 432-2387</a>
+                                    <p class="text-spacegray text-sm text-right mds:text-[11px]" aria-label="Work schedule">Daily from 9:00 PM - 6:00 AM</p>
+                                </div>
+                                <button class="bg-main text-sub text-sm font-semibold px-11 py-4 rounded-4xl ms:hidden" @click="popup0 = true; bodyScroll = false">Request a call</button>
+                                <button class="hidden ls:flex flex-col w-[35px] text-right ml-4" aria-hidden="true" @click="mobileMenuOpen = true; bodyScroll = false">
+                                    <span class="block w-full h-[2px] bg-main transition-all ease-in-out duration-200" :style="mobileMenuOpen ? 'transform: rotate(-45deg) translateY(12px) translateX(-7px)' : ''"></span>
+                                    <span class="block my-[10px] mds:my-[7.2px] self-end w-1/2 h-[2px] bg-main transition-all ease-in-out duration-200" :class="mobileMenuOpen ? 'w-0' : ''"></span>
+                                    <span class="block w-full h-[2px] bg-main transition-all ease-in-out duration-200" :style="mobileMenuOpen ? 'transform: rotate(45deg) translateY(-11px) translateX(-4px)' : ''"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="fixed top-0 left-0 w-full py-[20px] z-40 bg-sub transition-all ease-in-out duration-200" :style="fixedHeader ? 'visibility: visible; transform: translateY(0)' : 'visibility: visible; transform: translateY(-100%)' " x-ref="headertop" x-cloak>
+                    <div class="container-default">
+                        <div class="flex justify-between items-center">
+                            <a href="/" class="block max-w-[100px] max-h-[45px] mds:max-w-[85px] max-x-[40px]">
+                                <img src="./assets/images/logo.svg" alt="Home" title="Home" class="max-w-full max-h-full">
+                            </a>
+                            <nav class="header-menu flex-grow basis-1/2 ls:hidden">
+                                <ul class="flex justify-between space-x-5 pl-[65px]">
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">About the club</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Events</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Posters</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Menu</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Gallery</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Rooms</a></li>
+                                    <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Contacts</a></li>
+                                </ul>
+                            </nav>
+                            <div class="flex items-center">
+                                <div class="pl-8 pr-5 mds:pl-4 mds:pr-2 sr:pl-0 sr:pr-0 ssm:hidden">
+                                    <a href="tel:4844322387" class="text-main mds:text-[15px] hover:text-spacegray transition-colors ease-in-out duration-200 font-medium tracking-[2px] leading-[1.55] text-lg">(484) 432-2387</a>
+                                    <p class="text-spacegray text-sm text-right mds:text-[11px]">Daily from 9:00 PM - 6:00 AM</p>
+                                </div>
+                                <button class="bg-main text-sub text-sm font-semibold px-11 py-4 rounded-4xl ms:hidden" @click="popup0 = true; bodyScroll = false">Request a call</button>
+                                <button class="hidden ls:flex flex-col w-[35px] text-right ml-4" @click="mobileMenuOpen = true; bodyScroll = false">
+                                    <span class="block w-full h-[2px] bg-main transition-all ease-in-out duration-200" :style="mobileMenuOpen ? 'transform: rotate(-45deg) translateY(12px) translateX(-7px)' : ''"></span>
+                                    <span class="block my-[10px] mds:my-[7.2px] self-end w-1/2 h-[2px] bg-main transition-all ease-in-out duration-200" :class="mobileMenuOpen ? 'w-0' : ''"></span>
+                                    <span class="block w-full h-[2px] bg-main transition-all ease-in-out duration-200" :style="mobileMenuOpen ? 'transform: rotate(45deg) translateY(-11px) translateX(-4px)' : ''"></span>
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="bg-lightgray opacity-[0.15] w-full h-[1px] absolute bottom-0 left-0"></div>
+                </div>
+                <div class="fixed top-0 left-0 right-0 bottom-0 bg-sub/60 backdrop-blur-[2px] transition-all ease-in-out duration-200 z-50" :style="mobileMenuOpen ? 'opacity: 1; visibility: visible' : 'opacity: 0; visibility: hidden' " @keyup.escape.window="if(mobileMenuOpen) mobileMenuOpen = false" @click="mobileMenuOpen = false; bodyScroll = true" x-cloak></div>
+                <div class="fixed right-0 top-0 bottom-0 w-full bg-sub max-w-[260px] transition-all ease-in-out duration-200 z-50 overflow-y-auto" aria-hidden="true" :style="mobileMenuOpen ? 'visibility: visible; transform: translateX(0)' : 'visibility: hidden; transform: translateX(100%)' " x-cloak>
+                    <div class="pt-[48px] px-[40px] pb-[38px] min-h-full relative">
+                        <button class="absolute top-[30px] right-[15px]" @click="mobileMenuOpen = false; bodyScroll = true">
+                            <span class="block bg-main h-[2px] w-[24px] rotate-45"></span>
+                            <span class="block bg-main h-[2px] w-[24px] -rotate-45 -translate-y-[2px]"></span>
+                        </button>
+                        <div>
+                            <a href="/" class="block max-w-[120px] max-h-[45px]">
+                                <img src="./assets/images/logo.svg" alt="Home" title="Home" class="max-w-full max-h-full">
+                            </a>
+                            <ul class="flex-col space-y-3 pt-[45px]">
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">About the club</a></li>
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Events</a></li>
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Posters</a></li>
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Menu</a></li>
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Gallery</a></li>
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Rooms</a></li>
+                                <li><a href="#" class="text-main text-sl hover:text-spacegray transition-colors ease-in-out duration-200">Contacts</a></li>
+                            </ul>
+                            <div>
+                                <div class="my-[25px]">
+                                    <a href="tel:4844322387" class="text-main mds:text-[15px] hover:text-spacegray transition-colors ease-in-out duration-200 font-medium text-lg">(484) 432-2387</a>
+                                    <p class="text-spacegray text-sm">Daily from 9:00 PM - 6:00 AM</p>
+                                </div>
+                                <button class="bg-main text-sub text-sm font-semibold px-7 py-4 rounded-4xl">Request a call</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div x-init="if($refs.headertop.offsetHeight > 0)$el.style.height = $refs.headertop.offsetHeight + 'px'" x-intersect:leave="fixedHeader = true" x-intersect:enter="fixedHeader = false"></div>
+            <div id="header-hero">
+                <div class="pb-[65px]  backdrop-blur-sm">
+                    <div class="container-default">
+                        <div class="flex justify-center items-center">
+                            <div class="max-w-[604px] mt-[220px] mb-[50px]">
+                                <h1 class="site-headings">Everyone welcome to<br> <strong>DIPL</strong> <span>Karaoke</span><em>•</em><span>Dance Club</span></h1>
+                                <p class="text-spacegray leading-[26px] text-middle py-[35px] sr:text-xl" aria-label="Book a table">Book your table online and <br> receive a complimentary gift from the house</p>
+                                <p class="text-sl text-spacegray" aria-label="Details">* please contact manager for details</p>
+    
+                                <form action="#" aria-label="Book a table">
+                                    <div class="w-full flex cl:flex-col my-3">
+                                        <input type="tel" aria-label="Phone" placeholder="Phone" x-mask="(999) 999-9999" class="text-main bg-darkgray border-none focus:ring-0 font-druk h-[60px] px-5 cl:w-full cl:max-w-[350px]">
+                                        <button type="submit" class="uppercase px-[15px] w-[250px] max-w-[350px] bg-main text-sub text-little font-druk h-[60px] cl:w-full cl:max-w-[350px] ml-2 cl:ml-0 cl:mt-2 ">Book a table</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="flex justify-center flex-wrap w-full ls:max-w-[604px]">
+                                <div class="basis-1/4 ls:basis-1/2 cm:basis-full pr-2 my-3 flex justify-center ls:justify-start">
+                                    <div class="max-w-[80%]">
+                                        <div class="flex">
+                                            <img src="./assets/images/checkmark.svg" draggable="false" aria-hidden="true">
+                                            <p class="font-druk text-sm font-medium text-main ml-2" aria-label="20% off">20% off</p>
+                                        </div>
+                                        <p class="text-spacegray mt-4 text-sl" aria-label="Discount terms">on your birthday. 3 days before and 7 days after</p>
+                                        <p class="text-gray text-mids font-light py-2" aria-label="Details">contact our manager for more information</p>
+                                    </div>
+                                </div>
+                                <div class="basis-1/4 ls:basis-1/2 cm:basis-full pr-2 my-3 flex justify-center ls:justify-start">
+                                    <div class="max-w-[80%]">
+                                        <div class="flex">
+                                            <img src="./assets/images/checkmark.svg" draggable="false" aria-hidden="true">
+                                            <p class="font-druk text-sm font-medium text-main ml-2" aria-label="Звук">Sound</p>
+                                        </div>
+                                        <p class="text-spacegray mt-4 text-sl" aria-label="Sound information">Concert Sound. Latest updates on karaoke</p>
+                                    </div>
+                                </div>
+                                <div class="basis-1/4 ls:basis-1/2 cm:basis-full pr-2 my-3 flex justify-center ls:justify-start">
+                                    <div class="max-w-[80%]">
+                                        <div class="flex">
+                                            <img src="./assets/images/checkmark.svg" draggable="false" aria-hidden="true">
+                                            <p class="font-druk text-sm font-medium text-main ml-2" aria-label="Equipment">Equipment</p>
+                                        </div>
+                                        <p class="text-spacegray mt-4 text-sl" aria-label="About Equipment">Professional live equipment </p>
+                                    </div>
+                                </div>
+                                <div class="basis-1/4 ls:basis-1/2 cm:basis-full pr-2 my-3 flex justify-center ls:justify-start">
+                                    <div class="max-w-[80%]">
+                                        <div class="flex">
+                                            <img src="./assets/images/checkmark.svg" draggable="false" aria-hidden="true">
+                                            <p class="font-druk text-sm font-medium text-main ml-2" aria-label="VIP">VIP Rooms</p>
+                                        </div>
+                                        <p class="text-spacegray mt-4 text-sl" aria-label="VIP lounges">Three separate VIP lounges</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="fixed top-0 left-0 right-0 bottom-0 z-[150] transition-all ease-in-out duration-200" @keyup.escape.window="if(popup0){popup0 = false; bodyScroll = true}" :style="popup0 ? 'opacity: 1;visibility:visible' : 'opacity: 0;visibility:hidden' " x-cloak>
+        <button class="absolute top-0 left-0 right-0 bottom-0 bg-sub opacity-40" @click="popup0 = false; bodyScroll = true"></button>
+        <button class="absolute top-10 right-10" @click="popup0 = false; bodyScroll = true">
+            <svg role="presentation" class="t-popup__close-icon" width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="#fff" fill-rule="evenodd"><rect transform="translate(11.313708, 11.313708) rotate(-45.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect><rect transform="translate(11.313708, 11.313708) rotate(-315.000000) translate(-11.313708, -11.313708) " x="10.3137085" y="-3.6862915" width="2" height="30"></rect></g></svg>
+        </button>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-sub py-[40px] px-[45px] ssm:px-[25px] w-full max-w-[560px] cms:max-w-[95%] max-h-[90%] overflow-y-auto">
+            <div class="mb-[35px] text-main font-druk leading-[1.23] text-middlebold font-semibold text-center">Request a call</div>
+            <form action="">
+                <input type="text" aria-label="Name" placeholder="Name" class="text-main ssm:text-sl bg-darkgray border-none focus:ring-0 font-druk h-[60px] px-5 w-full mb-3">
+                <input type="tel" aria-label="Phone number" placeholder="Phone number" x-mask="(999) 999-9999" class="text-main ssm:text-sl bg-darkgray border-none focus:ring-0 font-druk h-[60px] px-5 w-full mb-3">
+                <button type="submit" class="uppercase px-[15px] bg-main text-sub text-little font-druk h-[60px] w-full mt-3">Order a call</button>
+            </form>
+        </div>
+    </div>
+
+    <main id="main">
+        <section class="bg-sablelight overflow-hidden">
+            <div class="container-fluid">
+                <div class="relative">
+                    <div class="absolute top-0 left-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" draggable="false" class="block absolute -top-[150px] -left-[30px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                        <img src="./assets/images/ellipse-2.png" draggable="false" class="block absolute -top-[50px] -left-[180px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale1" width="400px" height="400px" aria-hidden="true">
+                        <img src="./assets/images/ellipse-3.png" draggable="false" class="block absolute -top-2 -left-[30px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale2" width="400px" height="400px" aria-hidden="true">
+                    </div>
+                    <div class="absolute bottom-0 right-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" class="block absolute bottom-[50px] -right-[500px] rotate-15 w-[800px] h-[800px] opacity-[.35] animate-scale1" width="800px" height="800px" aria-hidden="true">
+                    </div>
+                    <div class="py-[100px] relative z-0">
+                        <div class="max-w-[604px]">
+                            <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">WHY WE</p>
+                            <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-main">Why you should come to us</h2>
+                        </div>
+                        <div class="flex flex-wrap my-10">
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Stylish <br> decor</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Professional <br> live sound</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Event <br> organization</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Room <br> rental</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Diverse <br> menu</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Cozy <br> spaces</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Fun show <br> from Art Group</p>
+                            </div>
+                            <div class="basis-1/4 max-w-1/4 rsm:basis-1/3 rsm:max-w-1/3 ms:basis-1/2 cm:basis-full cm:flex cm:flex-col cm:items-center ms:max-w-1/2 relative my-3">
+                                <img src="./assets/images/bg-icons/image.svg" draggable="false" class="absolute -left-[25px] cm:left-1/2 cm:-translate-x-[calc(50%+13px)]" aria-hidden="true" width="113px" height="113px" aria-hidden="false">
+                                <p class="text-main text-smj font-normal max-w-[250px] mt-[110px] pr-5 leading-[23px] cm:text-center">Great <br> Service</p>
+                            </div>
+                        </div>
+                        <div class="w-full relative mt-10">
+                            <div class="absolute top-0 left-0 right-0 bottom-0 z-[2]" style="background-image: url(./assets/images/s_background.jpeg);"></div>
+                            <div class="absolute top-0 left-0 w-[40%] mds:w-[60%] bottom-0 bg-sub z-[3]"></div>
+                            <div class="absolute top-0 left-[40%] mds:left-[60%] bottom-0 w-[25%] mds:w-[45%] z-[3]" style="background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));"></div>
+                            <div class="relative py-[70px] px-[90px] rsm:px-[30px] rsm:flex rsm:items-center rsm:flex-col z-10">
+                                <h2 class="text-melodys text-main font-extrabold leading-[60px] max-w-[650px] rsm:max-w-none rsm:text-center cl:text-nuller mds:text-middle cl:leading-[50px] mds:leading-[35px]">Book your table online and receive a complimentary gift from the venue</h2>
+                                <button class="uppercase px-[15px] w-[250px] mds:w-auto mds:max-w-none max-w-[350px] bg-main text-sub text-little font-druk h-[60px] mt-10 animate-pulsing">Booking</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section aria-hidden="true">
+            <div class="bg-brightgray h-[70px] overflow-hidden">
+                <marquee class="h-[70px]">
+                    <div class="flex items-center h-[70px] w-full text-sl font-druk font-semibold uppercase">
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation"  width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+
+
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+
+
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+    
+                        <span style="padding: 0 10px">Dipl</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Karaoke</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                        <span style="padding: 0 10px">Dance Club</span>
+                        <svg class="min-w-[6px] min-h-[6px]" role="presentation" width="6" height="6" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="5.11351" cy="4" rx="4.16918" ry="4" fill="#000000"></ellipse>
+                        </svg>
+                    </div>
+                </marquee>
+            </div>
+        </section>
+        <section class="overflow-hidden">
+            <div class="container-fluid">
+                <div class="relative">
+                    <div class="absolute top-0 left-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" draggable="false" class="block absolute -top-[150px] -left-[30px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                        <img src="./assets/images/ellipse-2.png" draggable="false" class="block absolute -top-[50px] -left-[180px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale1" width="400px" height="400px" aria-hidden="true">
+                        <img src="./assets/images/ellipse-3.png" draggable="false" class="block absolute -top-2 -left-[30px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale2" width="400px" height="400px" aria-hidden="true">
+                    </div>
+                    <div class="my-[80px] relative z-0">
+                        <div class="flex flex-wrap justify-between">
+                            <div class="max-w-[604px]">
+                                <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">ABOUT US</p>
+                                <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-sablelight mt-8">A few things <br> about us</h2>
+                                <div class="flex mt-5">
+                                    <img src="./assets/images/trace.svg" class="w-[18px] min-w-[18px]" aria-hidden="true">
+                                    <span class="text-slightgray text-smj mds:text-sl font-medium leading-[28px] ml-3" aria-label="Адрес">DIPL karaoke club Bol'shaya Kosinskaya Street, 45</span>
+                                </div>
+                            </div>
+                            <p class="text-smj text-sub leading-[28px] max-w-[604px] my-3" aria-label="Добро пожаловать!">Welcome to the professional karaoke club Dipl! The club was created by the founder of karaoke movement in Moscow - Alexei Smirnov. Being the founder of such clubs as: Who am I (Moscow), Who am I (Monaco), Lalada, Do Re, Solomay, Do it, club in Le Caves Courchevel, Alexey combined quality sound, interior and atmosphere of the holiday. We are waiting for you every day from 9 PM - 6 AM.</p>
+                        </div>
+                        <p class="font-bold font-druk text-sablelight uppercase text-middlelight leading-[34px] max-w-[604px] py-1 my-10 border-b-[3px] border-b-solid border-b-sablelight" aria-label="График работы">KARAOKE "DIPL" IS OPEN DAILY FROM 9 PM TO 6 AM.</p>
+                        <p class="text-smj text-sub leading-[28px] max-w-[904px]" aria-label="О клубе">
+                            The club has a system of <strong>face control</strong> and <strong>dress code</strong>. The administration of the club reserves the right to refuse to visit the club. <br> On Friday and Saturday the karaoke room has a deposit of <strong>25$</strong> per person.
+                        </p>
+                        <div class="my-8 flex flex-wrap">
+                            <div class="basis-1/3 rsm:basis-full pr-2 py-2 rsm:mt-3">
+                                <h3 class="text-sablelight text-middlelight font-druk leading-[34px]" aria-label="Large Vip lounge:">Large Vip lounge</h3>
+                                <p class="text-sablelight text-smj leading-[23px] my-5 pr-5 rsm:max-w-[80%] cm:max-w-none" aria-label="about the Vip Lounge">up to 30 people (the cost of the deposit depends on the day of the week, please check with the administration for details)</p>
+                                <button class="uppercase px-[15px] w-[250px] mds:w-auto mds:max-w-none max-w-[350px] bg-sub text-main text-little font-druk h-[60px]">Read more</button>
+                            </div>
+                            <div class="basis-1/3 rsm:basis-full pr-2 py-2 rsm:mt-3">
+                                <h3 class="text-sablelight text-middlelight font-druk leading-[34px]" aria-label="Medium Vip lounge:">Medium Vip lounge</h3>
+                                <p class="text-sablelight text-smj leading-[23px] my-5 pr-5 rsm:max-w-[80%] cm:max-w-none" aria-label="about the Vip Lounge">дup to 15 people (the cost of the deposit depends on the day of the week, please check with the administration for details)</p>
+                                <button class="uppercase px-[15px] w-[250px] mds:w-auto mds:max-w-none max-w-[350px] bg-sub text-main text-little font-druk h-[60px]">Read more</button>
+                            </div>
+                            <div class="basis-1/3 rsm:basis-full pr-2 py-2 rsm:mt-3">
+                                <h3 class="text-sablelight text-middlelight font-druk leading-[34px]" aria-label="Small Vip lounge:">Small Vip lounge</h3>
+                                <p class="text-sablelight text-smj leading-[23px] my-5 pr-5 rsm:max-w-[80%] cm:max-w-none" aria-label="about the Vip Lounge">up to 10 people (the cost of deposit depends on the day of the week, please check with the administration for details)</p>
+                                <button class="uppercase px-[15px] w-[250px] mds:w-auto mds:max-w-none max-w-[350px] bg-sub text-main text-little font-druk h-[60px]">Read more</button>
+                            </div>
+                        </div>
+                        <div class="flex rsm:block justify-between items-start">
+                            <p class="leading-[28px] text-sablelight pr-3 max-w-[604px] text-smj" aria-label="Cost">The early opening fee is $100 per hour. <br> Renewal fee: every 30 minutes after 6 AM is $150, or $20 for 1 song.</p>
+                            <button class="uppercase px-[20px] py-[28px] mds:w-auto mds:max-w-none bg-sub text-main text-little font-druk rsm:mt-3">Rules for selecting and performing songs</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-sablelight overflow-hidden">
+            <div class="container-fluid">
+                <div class="relative">
+                    <div class="absolute bottom-[50%] left-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" draggable="false" class="block absolute -top-[120px] -left-[270px] rotate-15 w-[600px] h-[600px] opacity-[.35] animate-scale" width="600px" height="600px" aria-hidden="true">
+                    </div>
+                    <div class="absolute top-[15%] right-0 w-full z-0">
+                        <img src="./assets/images/ellipse-2.png" draggable="false" class="block absolute -top-[120px] -right-[120px] rotate-15 w-[600px] h-[600px] opacity-[.35] animate-scale" width="600px" height="600px" aria-hidden="true">
+                    </div>
+                    <div class="py-[100px] relative z-0">
+                        <div class="max-w-[604px]">
+                            <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">SALE</p>
+                            <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-main mt-8">Events and discounts</h2>
+                        </div>
+                        <div class="flex flex-col mt-[50px] mds:mt-[25px]">
+                            <div class="flex rsm:flex-col my-[15px] bg-spacesable max-w-[900px] rsm:max-w-[550px] rsm:mr-3">
+                                <div class="w-full rsm:max-w-none rsm:h-[350px] mds:h-[250px] max-w-[380px] bgzhover" style="background-image: url(./assets/images/cover-1.jpg);"></div>
+                                <div class="px-[65px] py-[65px] rsm:px-[35px] rsm:py-[35px] mds:px-[20px] mds:py-[25px]">
+                                    <p class="leading-[34px] text-middlelight mds:text-seplight mds:leading-[24px] text-main font-druk" aria-label="Name of service">Your best birthday ever at DiPL</p>
+                                    <p class="text-gray mt-5 font-medium leading-[23px]" aria-label="Скидка!">20% off! 3 days before and 7 days after</p>
+                                    <button class="uppercase px-[40px] py-[28px] rsm:px-[25px] mds:px-[18px] mds:py-[20px] mds:w-auto mds:max-w-none bg-main text-sub text-little font-druk mt-10">Join the event</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="overflow-hidden" x-data="{ galleryOpen: false, smlight: false }">
+            <div class="container-fluid">
+                <div class="py-[100px] relative">
+                    <div class="absolute top-[20%] right-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" draggable="false" class="block absolute -top-[120px] -right-[270px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                        <img src="./assets/images/ellipse-2.png" draggable="false" class="block absolute top-[0px] -right-[200px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                    </div>
+                    <div>
+                        <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">POSTERS</p>
+                        <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-sablelight mt-8">AFFICHES</h2>
+                    </div>
+                    <div class="flex flex-wrap cl:justify-center items-stretch my-[35px] relative z-0">
+                        <button class="basis-1/3 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(1); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-1.jpeg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+                        <button class="basis-1/3 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(2); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-2.jpg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+                        <button class="basis-1/3 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(3); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-3.jpg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+
+                        <button class="basis-1/4 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(4); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-4.jpg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+                        <button class="basis-1/4 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(5); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-5.jpg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+                        <button class="basis-1/4 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(6); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-6.jpg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+                        <button class="basis-1/4 cl:basis-1/2 mds:basis-full outline-none cursor-zoom-in" @click="smlight.slideTo(7); galleryOpen = true; bodyScroll = false">
+                            <img src="./assets/images/posters/p-7.jpg" draggable="false" class="block w-full pr-5 pb-5 rsm:pr-2 rsm:pb-2 mds:pr-0 object-cover h-full" draggable="false" alt="Poster" title="Poster">
+                        </button>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="fixed top-0 left-0 right-0 bottom-0 bg-main z-[120]" x-show="galleryOpen" @keyup.escape.window="if(galleryOpen) galleryOpen = false; bodyScroll = true" @keyup.window="if($event.keyCode == '39'){ if(galleryOpen) smlight.slideNext() } else if($event.keyCode == '37'){ if(galleryOpen) smlight.slidePrev() }" x-init="smlight = new Swiper('#smlight-gallery-0', {loop: true})" x-cloak>
+                    <div class="relative w-full h-full overflow-hidden">
+                        <button class="w-[60px] h-[60px] absolute top-3 right-3 hover:opacity-70 z-10" @click="galleryOpen = false; bodyScroll = true">
+                            <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41421 -0.000151038L0 1.41406L21.2132 22.6273L22.6274 21.2131L1.41421 -0.000151038Z" fill="#000000"></path><path d="M22.6291 1.41421L21.2148 0L0.00164068 21.2132L1.41585 22.6274L22.6291 1.41421Z" fill="#000000"></path></svg>
+                        </button>
+
+                        <button class="absolute left-0 top-0 w-[15%] h-full flex items-center justify-center hover:opacity-70 z-0" @click="smlight.slidePrev()">
+                            <div class="w-[18px] h-[18px] rotate-45 border-l-[2px] border-l-solid border-l-night border-b-[2px] border-b-solid border-b-night absolute left-10 rsm:left-1/2"></div>
+                        </button>
+                        <button class="absolute right-0 top-0 w-[15%] h-full flex items-center hover:opacity-70 z-0" @click="smlight.slideNext()">
+                            <div class="w-[18px] h-[18px] rotate-45 border-t-[2px] border-t-solid border-t-night border-r-[2px] border-r-solid border-r-night absolute right-10 rsm:right-1/2"></div>
+                        </button>
+
+
+                        <div class="w-full h-full swiper max-w-[70%]" id="smlight-gallery-0">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-1.jpeg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-2.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-3.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-4.jpg" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-5.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-6.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                    <div class="w-full h-[90%] flex justify-center items-center">
+                                        <img class="max-w-full max-h-full" draggable="false" src="./assets/images/posters/p-7.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-sablelight overflow-hidden" x-data="{ smopac: false, galleryOpen: false, smprot: false }">
+            <div class="container-fluid">
+                <div aria-hidden="true" class="relative">
+                    <div class="absolute top-[20%] right-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" draggable="false" class="block absolute -top-[80px] -right-[80px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                    </div>
+                    <div class="absolute top-[15%] right-0 w-full z-0">
+                        <img src="./assets/images/ellipse-2.png" draggable="false" class="block absolute -top-[120px] -right-[120px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale1" width="400px" height="400px" aria-hidden="true">
+                    </div>
+                    <div class="py-[100px] relative z-0">
+                        <div class="flex flex-col items-center text-center">
+                            <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">MENU</p>
+                            <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-main mt-8">MENU</h2>
+                        
+                            <div class="py-5 flex mds:flex-wrap mds:justify-center w-full">
+                                <div class="basis-[30px] min-w-[30px] flex items-center rotate-180 mr-3 mds:mt-3">
+                                    <button class="w-[30px] h-[30px] rounded-full bg-night flex justify-center items-center" @click="smopac.slidePrev()">
+                                        <svg class="t-null__slds-arrow t-null__slds-arrow_1" width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;"><path d="M39 68L60 47L39 26" stroke="black" vector-effect="non-scaling-stroke" style="stroke-width: 1px; stroke: rgb(255, 255, 255);"></path></svg>
+                                    </button>
+                                </div>
+                                <div id="smopac-gallery-0" class="swiper mds:min-w-full basis-full w-full h-[779px] ms:h-[500px] mds:h-[400px] max-w-full overflow-hidden mds:-order-1" x-init="smopac = new Swiper('#smopac-gallery-0', {
+                                    loop: true, effect: 'fade',
+                                    fadeEffect: {
+                                        crossFade: true
+                                    }
+                                })">
+                                    <div class="swiper-wrapper h-full">
+                                        <button class="swiper-slide w-full h-full bg-cover bg-no-repeat bg-center cursor-zoom-in" @click="galleryOpen = true; bodyScroll = false; smprot.slideTo(1)" style="background-image: url(./assets/images/menu/m-1.png)"></button>
+                                        <button class="swiper-slide w-full h-full bg-cover bg-no-repeat bg-center cursor-zoom-in" @click="galleryOpen = true; bodyScroll = false; smprot.slideTo(2)" style="background-image: url(./assets/images/menu/m-1.png)"></button>
+                                    </div>
+                                </div>
+                                <div class="basis-[30px] min-w-[30px] flex items-center ml-3 mds:mt-3">
+                                    <button class="w-[30px] h-[30px] rounded-full bg-night flex justify-center items-center" @click="smopac.slideNext()">
+                                        <svg class="t-null__slds-arrow t-null__slds-arrow_1" width="94" height="94" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;"><path d="M39 68L60 47L39 26" stroke="black" vector-effect="non-scaling-stroke" style="stroke-width: 1px; stroke: rgb(255, 255, 255);"></path></svg>
+                                    </button>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div aria-hidden="true" class="fixed top-0 left-0 right-0 bottom-0 bg-main z-[120]" x-show="galleryOpen" @keyup.escape.window="if(galleryOpen) galleryOpen = false; bodyScroll = true" @keyup.window="if($event.keyCode == '39'){ if(galleryOpen) smprot.slideNext() } else if($event.keyCode == '37'){ if(galleryOpen) smprot.slidePrev() }" x-init="smlight = new Swiper('#smlight-gallery-0', {loop: true})" x-cloak>
+                        <div class="relative w-full h-full overflow-hidden">
+                            <button class="w-[60px] h-[60px] absolute top-3 right-3 hover:opacity-70 z-10" @click="galleryOpen = false; bodyScroll = true">
+                                <svg width="20" height="20" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41421 -0.000151038L0 1.41406L21.2132 22.6273L22.6274 21.2131L1.41421 -0.000151038Z" fill="#000000"></path><path d="M22.6291 1.41421L21.2148 0L0.00164068 21.2132L1.41585 22.6274L22.6291 1.41421Z" fill="#000000"></path></svg>
+                            </button>
+    
+                            <button class="absolute left-0 top-0 w-[15%] h-full flex items-center justify-center hover:opacity-70 z-0" @click="smprot.slidePrev()">
+                                <div class="w-[18px] h-[18px] rotate-45 border-l-[2px] border-l-solid border-l-night border-b-[2px] border-b-solid border-b-night absolute left-10 rsm:left-1/2"></div>
+                            </button>
+                            <button class="absolute right-0 top-0 w-[15%] h-full flex items-center hover:opacity-70 z-0" @click="smprot.slideNext()">
+                                <div class="w-[18px] h-[18px] rotate-45 border-t-[2px] border-t-solid border-t-night border-r-[2px] border-r-solid border-r-night absolute right-10 rsm:right-1/2"></div>
+                            </button>
+    
+    
+                            <div class="w-full h-full swiper max-w-[70%]" id="smprot-gallery-0"  x-init="smprot = new Swiper('#smprot-gallery-0', { loop: true } )">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                        <div class="w-full h-[90%] flex justify-center items-center">
+                                            <img class="max-w-full max-h-full" draggable="false" src="./assets/images/menu/m-1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide w-full h-full flex justify-center items-center">
+                                        <div class="w-full h-[90%] flex justify-center items-center">
+                                            <img class="max-w-full max-h-full" draggable="false" src="./assets/images/menu/m-2.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full my-10">
+                        <div class="py-[70px] px-[90px] rsm:px-[30px] rsm:flex rsm:items-center rsm:flex-col bgzhover1" style="background-image: url(./assets/images/s-background-2.jpg);">
+                            <h2 class="text-melodys text-main font-extrabold leading-[46px] max-w-[650px] rsm:max-w-none rsm:text-center cl:text-nuller mds:text-middle cl:leading-[36px] mds:leading-[26px]">Still hesitating <br> about where <br> you're going? </h2>
+                            <p class="leading-[28px] text-smj text-main mt-4 rsm:text-center">Book your table online and receive <br>house gift</p>
+                            <button class="uppercase px-[15px] w-[250px] mds:w-auto mds:max-w-none max-w-[350px] bg-main text-sub text-little font-druk h-[60px] mt-10">Booking</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="overflow-hidden">
+            <div class="container-fluid">
+                <div class="py-[100px] relative">
+                    <div class="absolute top-[20%] right-0 w-full z-0">
+                        <img src="./assets/images/ellipse-1.png" draggable="false" class="block absolute -top-[120px] -right-[270px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                        <img src="./assets/images/ellipse-2.png" draggable="false" class="block absolute top-[0px] -right-[200px] rotate-15 w-[400px] h-[400px] opacity-[.35] animate-scale" width="400px" height="400px" aria-hidden="true">
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">PHOTO REPORT</p>
+                        <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-sablelight mt-8">Photo report</h2>
+                    </div>
+                    <div class="flex flex-wrap items-stretch my-5">
+                        <div class="mr-3 mb-3 cl:mr-0 basis-[calc(50%-0.75rem)] cl:basis-full relative h-[400px] rsm:h-[300px] group overflow-hidden">
+                            <div class="w-full h-full">
+                                <div class="absolute top-0 left-0 bottom-0 right-0 bg-center bg-cover group-hover:scale-105 transition-all ease-in-out duration-300" style="background-image: url(./assets/images/photoreport-1.jpg);"></div>
+                                <div class="absolute top-0 left-0 bottom-0 right-0 group-hover:opacity-80 transition-all ease-in-out duration-300" style="background-image: -moz-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -o-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80));"></div>
+                                <div class="absolute w-full flex flex-col items-center top-1/2 -translate-y-1/2 px-5">
+                                    <p class="text-main text-sperm font-semibold translate-y-5 group-hover:-translate-y-5 transition-all ease-in-out duration-200 rsm:text-drunk mds:text-middlelight ssr:text-sl">Kids' karaoke</p>
+                                    <a href="#" class="text-sable rounded-4xl font-druk bg-main px-10 py-3 mt-5 -translate-y-5 invisible opacity-0 group-hover:translate-y-0 group-hover:visible group-hover:opacity-100 transition-all ease-in-out duration-300 mds:mt-0 mds:px-7 mds:text-sl ssr:px-3 ssr:text-little">View Photo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mr-3 mb-3 cl:mr-0 basis-[calc(50%-0.75rem)] cl:basis-full relative h-[400px] rsm:h-[300px] group overflow-hidden">
+                            <div class="w-full h-full">
+                                <div class="absolute top-0 left-0 bottom-0 right-0 bg-center bg-cover group-hover:scale-105 transition-all ease-in-out duration-300" style="background-image: url(./assets/images/photoreport-1.jpg);"></div>
+                                <div class="absolute top-0 left-0 bottom-0 right-0 group-hover:opacity-80 transition-all ease-in-out duration-300" style="background-image: -moz-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -o-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80));"></div>
+                                <div class="absolute w-full flex flex-col items-center top-1/2 -translate-y-1/2 px-5">
+                                    <p class="text-main text-sperm font-semibold translate-y-5 group-hover:-translate-y-5 transition-all ease-in-out duration-200 rsm:text-drunk mds:text-middlelight ssr:text-sl">Kids' karaoke</p>
+                                    <a href="#" class="text-sable rounded-4xl font-druk bg-main px-10 py-3 mt-5 -translate-y-5 invisible opacity-0 group-hover:translate-y-0 group-hover:visible group-hover:opacity-100 transition-all ease-in-out duration-300 mds:mt-0 mds:px-7 mds:text-sl ssr:px-3 ssr:text-little">View Photo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mr-3 mb-3 cl:mr-0 basis-[calc(50%-0.75rem)] cl:basis-full relative h-[400px] rsm:h-[300px] group overflow-hidden">
+                            <div class="w-full h-full">
+                                <div class="absolute top-0 left-0 bottom-0 right-0 bg-center bg-cover group-hover:scale-105 transition-all ease-in-out duration-300" style="background-image: url(./assets/images/photoreport-1.jpg);"></div>
+                                <div class="absolute top-0 left-0 bottom-0 right-0 group-hover:opacity-80 transition-all ease-in-out duration-300" style="background-image: -moz-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -o-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80));"></div>
+                                <div class="absolute w-full flex flex-col items-center top-1/2 -translate-y-1/2 px-5">
+                                    <p class="text-main text-sperm font-semibold translate-y-5 group-hover:-translate-y-5 transition-all ease-in-out duration-200 rsm:text-drunk mds:text-middlelight ssr:text-sl">Kids' karaoke</p>
+                                    <a href="#" class="text-sable rounded-4xl font-druk bg-main px-10 py-3 mt-5 -translate-y-5 invisible opacity-0 group-hover:translate-y-0 group-hover:visible group-hover:opacity-100 transition-all ease-in-out duration-300 mds:mt-0 mds:px-7 mds:text-sl ssr:px-3 ssr:text-little">View Photo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mr-3 mb-3 cl:mr-0 basis-[calc(50%-0.75rem)] cl:basis-full relative h-[400px] rsm:h-[300px] group overflow-hidden">
+                            <div class="w-full h-full">
+                                <div class="absolute top-0 left-0 bottom-0 right-0 bg-center bg-cover group-hover:scale-105 transition-all ease-in-out duration-300" style="background-image: url(./assets/images/photoreport-1.jpg);"></div>
+                                <div class="absolute top-0 left-0 bottom-0 right-0 group-hover:opacity-80 transition-all ease-in-out duration-300" style="background-image: -moz-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -o-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80)); background-image: -ms-linear-gradient(top, rgba(0,0,0,0.70), rgba(0,0,0,0.80));"></div>
+                                <div class="absolute w-full flex flex-col items-center top-1/2 -translate-y-1/2 px-5">
+                                    <p class="text-main text-sperm font-semibold translate-y-5 group-hover:-translate-y-5 transition-all ease-in-out duration-200 rsm:text-drunk mds:text-middlelight ssr:text-sl">Kids' karaoke</p>
+                                    <a href="#" class="text-sable rounded-4xl font-druk bg-main px-10 py-3 mt-5 -translate-y-5 invisible opacity-0 group-hover:translate-y-0 group-hover:visible group-hover:opacity-100 transition-all ease-in-out duration-300 mds:mt-0 mds:px-7 mds:text-sl ssr:px-3 ssr:text-little">View Photo</a>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-sablelight overflow-hidden" x-data="{ smstpop: false }">
+            <div class="container-fluid">
+                <div class="pt-[100px] relative z-0">
+                    <div class="flex flex-col items-center text-center">
+                        <p class="text-gray text-midlit font-medium tracking-[1px] uppercase" aria-hidden="true">GALLERY</p>
+                        <h2 class="font-druk ms:text-drunk mds:text-middle text-nuller font-semibold uppercase leading-[53px] mds:leading-[35px] text-main mt-8">THE GALLERY</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="relative my-[50px]" x-init="smstpop = new Swiper('#smstpop-slider-0', { 
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 15,
+                centeredSlides: true,
+
+                breakpoints: {
+                    660: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    1200: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    }
+                },
+                pagination: {
+                    el: '#smstpop-pagination-0',
+                    type: 'bullets'
+                }
+            })">
+                <button @click="smstpop.slidePrev()" class="block bg-main w-[40px] h-[40px] absolute top-1/2 left-[28%] rounded-full z-10 ms:left-3 ms:w-[30px] ms:h-[30px]">
+                    <div class="w-[9px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-180">
+                        <svg role="presentation" focusable="false" style="display: block" viewBox="0 0 9.3 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <desc>Left</desc> <polyline fill="none" stroke="#0d0d0d" stroke-linejoin="butt" stroke-linecap="butt" stroke-width="1" points="0.5,0.5 8.5,8.5 0.5,16.5"></polyline> </svg>
+                    </div>
+                </button>
+
+                <button @click="smstpop.slideNext()" class="block bg-main w-[40px] h-[40px] absolute top-1/2 right-[28%] rounded-full z-10 ms:right-3  ms:w-[30px] ms:h-[30px]">
+                    <div class="w-[9px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <svg role="presentation" focusable="false" style="display: block" viewBox="0 0 9.3 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <desc>Left</desc> <polyline fill="none" stroke="#0d0d0d" stroke-linejoin="butt" stroke-linecap="butt" stroke-width="1" points="0.5,0.5 8.5,8.5 0.5,16.5"></polyline> </svg>
+                    </div>
+                </button>
+                <div class="swiper lsmswiper z-0" id="smstpop-slider-0">
+                    <div class="swiper-wrapper items-stretch">
+                        <div class="swiper-slide">
+                            <img src="./assets/images/thegallery-1.jpeg" draggable="false" class="object-cover w-full" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./assets/images/thegallery-1.jpeg" draggable="false" class="object-cover w-full" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./assets/images/thegallery-1.jpeg" draggable="false" class="object-cover w-full" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./assets/images/thegallery-1.jpeg" draggable="false" class="object-cover w-full" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./assets/images/thegallery-1.jpeg" draggable="false" class="object-cover w-full" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="smstpop-pag mt-5 mb-[100px]" id="smstpop-pagination-0"></div>
+            </div>
+        </section>
+
+        <section class="relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 bottom-0 bg-cover z-0" style="background-image: url(./assets/images/f-background.png)"></div>
+            <div class="absolute top-0 left-0 right-0 bottom-0 z-0" style="background-image: -webkit-gradient( linear, left top, left bottom, from(rgba(28,29,31,0.8)), to(rgba(28,29,31,0.8)) ); background-image: linear-gradient(to bottom, rgba(28,29,31,0.8), rgba(28,29,31,0.8))"></div>
+
+            <div class="container-fluid relative z-10">
+                <div class="py-[100px] flex rsm:flex-col rsm:items-center">
+                    <div class="basis-1/2 rsm:w-full rsm:max-w-[560px] pr-5 rsm:pr-0">
+                        <h2 class="text-main leading-[64px] text-extramelody font-extrabold ms:text-nuller ms:leading-[45px] mds:text-middlebolf mds:leading-[35px] ssr:text-middle ssr:leading-[25px]">Book a table<br> online and receive <br> compliments of <br> establishment</h2>
+                        <p class="text-main mt-[100px] text-smj leading-[28px] rsm:my-10">* please contact manager for details</p>
+                    </div>
+                    <div class="basis-1/2">
+                        <form class="w-full max-w-[490px] rsm:max-w-[560px]" action="">
+                            <input type="text" placeholder="Date" class="text-main ssm:text-sl bg-blindgray border-none focus:ring-0 font-druk h-[60px] px-5 w-full mb-3 placeholder:text-gray" x-init="
+                                datepicker($el, {
+                                formatter: (input, date, instance) => {
+                                    let value = date.toLocaleDateString();
+                                    value = value.split('/');
+                                    const value0 = value[0];
+                                    value[0] = value[1];
+                                    value[1] = value0;
+                                    input.value = value.join('.');
+                                }
+                            })"></input>
+
+                            <input type="tel" aria-label="Phone" placeholder="Phone" x-mask="+7 (999) 999-99-99" class="text-main ssm:text-sl bg-blindgray border-none focus:ring-0 font-druk h-[60px] px-5 w-full mb-3 placeholder:text-gray">
+                            <input type="text" aria-label="Your Name" placeholder="Your Name" class="text-main ssm:text-sl bg-blindgray border-none focus:ring-0 font-druk h-[60px] px-5 w-full mb-3 placeholder:text-gray">
+                            <input type="text" aria-label="Time" placeholder="Time" x-mask="99:99" class="text-main ssm:text-sl bg-blindgray border-none focus:ring-0 font-druk h-[60px] px-5 w-full mb-3 placeholder:text-gray">
+                            <button type="submit" class="uppercase px-[15px] bg-main text-sub text-little font-druk h-[60px] w-full mt-3">Book a table</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-sub overflow-hidden">
+        <div class="container-fluid">
+            <div class="pt-[100px]">
+                <div class="flex rsm:flex-col justify-between">
+                    <div class="basis-[140px]">
+                        <a href="/" class="block w-[140px] max-w-[140px]">
+                            <img src="./assets/images/logo.svg" class="w-full max-w-full max-h-[140px]">
+                        </a>
+                    </div>
+                    <div class="max-w-1/3 pr-3 mb-5">
+                        <p class="uppercase text-nightgray font-druk leading-[31px] text-seplight mb-10">Menu</p>
+                        <nav aria-label="Меню в подвале">
+                            <ul>
+                                <li class="py-2"><a href="#" class="text-main text-sl leading-[1.55] hover:text-spacegray transition">About the club</a></li>
+                                <li class="py-2"><a href="#" class="text-main text-sl leading-[1.55] hover:text-spacegray transition">Events</a></li>
+                                <li class="py-2"><a href="#" class="text-main text-sl leading-[1.55] hover:text-spacegray transition">Posters</a></li>
+                                <li class="py-2"><a href="#" class="text-main text-sl leading-[1.55] hover:text-spacegray transition">Menu</a></li>
+                                <li class="py-2"><a href="#" class="text-main text-sl leading-[1.55] hover:text-spacegray transition">Gallery</a></li>
+                                <li class="py-2"><a href="#" class="text-main text-sl leading-[1.55] hover:text-spacegray transition">Contacts</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="max-w-1/3 pr-3 mb-5">
+                        <p class="uppercase text-nightgray font-druk leading-[31px] text-seplight mb-10">Contacts</p>
+
+                        <p class="leading-[28px] text-nightgray font-semibold text-smj mb-5">Phone Number:</p>
+                        <div class="flex items-center">
+                            <img src="./assets/images/social-icons/whatsapp.jpg" class="w-[30px] h-[30px] mr-2 ssm:w-[20px] ssm:h-[20px]" alt="">
+                            <a href="tel:4844322387" class="text-main text-middlelight font-medium tracking-[2px] hover:text-spacegray transition cm:text-seplight ssm:text-smj ssr:text-mids">(484) 432-2387</a>
+                        </div>
+                        <span class="leading-[22px] text-spacegray text-fourt">Daily from 9:00 PM - 6:00 AM</span>
+
+                        <div class="my-5 flex items-center">
+                            <img src="./assets/images/social-icons/instagram.jpg" class="w-[30px] h-[30px] mr-2 ssm:w-[20px] ssm:h-[20px]" alt="">
+                            <a href="#" class="text-main text-middlelight font-medium tracking-[2px] hover:text-spacegray transition cm:text-seplight ssm:text-smj">@dipl.club</a>
+                        </div>
+                        <div class="my-5 flex items-center">
+                            <img src="./assets/images/social-icons/email.jpg" class="w-[30px] h-[30px] mr-2 ssm:w-[20px] ssm:h-[20px]" alt="">
+                            <a href="#" class="text-main text-middlelight font-medium tracking-[2px] hover:text-spacegray transition cm:text-seplight ssm:text-smj">contact@dipl.club</a>
+                        </div>
+                    </div>
+
+                    <div class="max-w-1/3 pr-3 mb-5">
+                        <p class="leading-[28px] text-nightgray font-semibold text-smj mt-10">Address:</p>
+                        <div class="my-5">
+                            <p class="leading-[25px] text-spacegray">Elaginsky Prospekt</p>
+                            <p class="leading-[25px] text-spacegray">Izmailovsky Prospekt</p>
+                        </div>
+                        <div class="flex">
+                            <img src="./assets/images/markspan.svg" class="w-[20px] h-[20px] mr-2" alt="">
+                            <p class="leading-[23px] text-sl text-main font-bold font-druk ssm:text-mids">Bol'shaya Kosinskaya Street, 45</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t-[1px] border-t-easysable border-t-solid flex flex-wrap justify-between mt-10 py-8">
+                    <p class="text-nightgray text-sl">© DIPL Club 2021</p>
+                    <a href="#" class="leading-[23px] text-nightgray text-sl font-semibold">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
