@@ -1,0 +1,82 @@
+@import "fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    *, *::before, *::after{
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    [x-cloak]{
+        display: none;
+    }
+    body{
+        @apply font-tilda-sans bg-main text-sub;
+    }
+}
+@layer components{
+    .container-default{
+        @apply mx-auto max-w-[1230px] px-3 sl:px-5;
+    }
+
+    .container-fluid{
+        @apply mx-auto max-w-[1230px] px-3 ls:px-[50px] cm:px-[35px];
+    }
+
+    .site-headings{
+        @apply uppercase font-druk font-bold leading-[53px] text-main text-druky sr:text-drunk break-words ssr:text-middle ssr:leading-[35px];
+    }
+    .site-headings strong{
+        @apply text-giant break-all mds:text-big ssr:text-melody leading-[117px] mds:leading-[80px] ssr:leading-[60px];
+    }
+    .site-headings span{
+        @apply font-tilda-sans text-base font-medium px-2;
+    }
+    .site-headings em{
+        @apply font-tilda-sans text-base not-italic opacity-25 px-2;
+    }
+    .bgzhover{
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @apply transition-all ease-in-out duration-500 rsm:bg-cover;
+    }
+    .bgzhover:hover{
+        background-size: 120% 120%;
+
+        @apply rsm:bg-cover;
+    }
+
+    .bgzhover1{
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @apply transition-all ease-in-out duration-500 rsm:bg-cover;
+    }
+
+    .bgzhover1:hover{
+        background-size: 120% 120%;
+
+        @apply rsm:bg-cover;
+    }
+
+    .lsmswiper .swiper-slide{
+        @apply opacity-30 transition-all ease-in-out duration-300;
+    }
+    .lsmswiper .swiper-slide-active{
+        @apply opacity-100;
+    }
+
+    .smstpop-pag{
+        @apply flex justify-center;
+    }
+    .smstpop-pag .swiper-pagination-bullet{
+        @apply bg-spacegray;
+    }
+    .smstpop-pag .swiper-pagination-bullet-active{
+        @apply bg-main;
+    }
+}
